@@ -37,7 +37,7 @@ const scanReferRows: ResultRow[] = [
 const bibtex = `@inproceedings{origround2026,
   title     = {OriGround: Orientation-Aware Neuro-Symbolic
                Zero-Shot 3D Visual Grounding},
-  author    = {Anonymous},
+  author    = {Haochen Li and Jiaxin Shi and Ruonan Liu and Luo Liufu},
   booktitle = {Findings of the Association for Computational
                Linguistics: EMNLP 2026},
   year      = {2026}
@@ -119,7 +119,11 @@ export default function Home() {
           <span className="title-line">OriGround: Orientation-Aware Neuro-Symbolic</span>
           <span className="title-line">Zero-Shot 3D Visual Grounding</span>
         </h1>
-        <p className="authors">Anonymous Authors</p>
+        <p className="authors">
+          Haochen Li, Jiaxin Shi<sup>*</sup>, Ruonan Liu<sup>†</sup>, Luo Liufu
+        </p>
+        <p className="affiliation">Shanghai Jiao Tong University</p>
+        <p className="author-notes"><sup>*</sup> Project Lead &nbsp;·&nbsp; <sup>†</sup> Corresponding Author</p>
         <div className="resource-links" aria-label="Project resources">
           <a href="/origround-paper.pdf" target="_blank" rel="noreferrer">Paper</a>
           <a href="https://github.com/jinji-2005/Origround" target="_blank" rel="noreferrer">Code</a>
