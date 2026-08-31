@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     title: 'OriGround: Orientation-Aware Neuro-Symbolic Zero-Shot 3D Visual Grounding',
     description:
       'Viewpoint-aware parsing, object-centric orientation estimation, symbolic execution, and aligned visual prompting.',
-    images: ['/paper-figures/figure-2-overview.png'],
+    images: ['/paper-figures/pipeline-complete.png'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'OriGround: Orientation-Aware 3D Visual Grounding',
     description: 'Explicit reference frames for zero-shot 3D visual grounding.',
-    images: ['/paper-figures/figure-2-overview.png'],
+    images: ['/paper-figures/pipeline-complete.png'],
   },
 };
 
