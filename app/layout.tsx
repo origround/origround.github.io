@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://origround.github.io'),
   title: 'OriGround: Orientation-Aware Neuro-Symbolic Zero-Shot 3D Visual Grounding',
   description:
     'OriGround explicitly models object-centric orientations and inferred viewpoints for zero-shot 3D visual grounding.',

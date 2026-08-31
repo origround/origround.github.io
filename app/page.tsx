@@ -116,17 +116,13 @@ export default function Home() {
       <section id="top" className="hero page-width">
         <p className="venue">EMNLP 2026 Findings</p>
         <h1>
-          <span className="title-line">OriGround: Orientation-Aware Neuro-Symbolic</span>
-          <span className="title-line">Zero-Shot 3D Visual Grounding</span>
+          <span className="hero-brand">OriGround:</span>{' '}
+          <span className="hero-title-copy"><span>Orientation-Aware Neuro-Symbolic</span>{' '}<span>Zero-Shot 3D Visual Grounding</span></span>
         </h1>
-        <p className="authors">
-          Haochen Li, Jiaxin Shi<sup>*</sup>, Ruonan Liu<sup>†</sup>, Luo Liufu
-        </p>
-        <p className="affiliation">Shanghai Jiao Tong University</p>
-        <p className="author-notes"><sup>*</sup> Project Lead &nbsp;·&nbsp; <sup>†</sup> Corresponding Author</p>
+        <p className="authors">Haochen Li, Jiaxin Shi, Ruonan Liu, Luo Liufu</p>
         <div className="resource-links" aria-label="Project resources">
           <a href="/origround-paper.pdf" target="_blank" rel="noreferrer">Paper</a>
-          <a href="https://github.com/jinji-2005/Origround" target="_blank" rel="noreferrer">Code</a>
+          <a href="https://github.com/origround/OriGround" target="_blank" rel="noreferrer">Code</a>
         </div>
       </section>
 
@@ -135,45 +131,39 @@ export default function Home() {
           <p className="section-label">Part I</p>
           <h2>Abstract</h2>
         </div>
-        <div className="abstract-statement">
-          <div className="statement-thesis">
-            <p>The missing variable in zero-shot 3D grounding</p>
-            <h3>Spatial language becomes well-defined only when its reference frame is explicit.</h3>
+        <div className="abstract-overview">
+          <div className="abstract-lead">
+            <p>Core insight</p>
+            <h3>Grounding spatial language requires a reference frame—not just a bounding box.</h3>
           </div>
-          <div className="statement-copy">
-            <p>Existing training-free systems describe objects with categories, centers, and bounding boxes. These representations capture where an object is, but not which way it faces. OriGround introduces the local directional basis needed to understand <em>left</em>, <em>behind</em>, <em>facing the door</em>, and other observer-dependent expressions.</p>
+          <div className="abstract-summary">
+            <p>OriGround estimates object orientations, parses viewpoint-aware symbolic programs, and evaluates relations in the correct anchor or observer frame before VLM disambiguation.</p>
             <div className="abstract-flow" aria-label="OriGround reasoning flow">
-              <span>Parse</span><i>→</i><span>Orient</span><i>→</i><span>Execute</span><i>→</i><span>Align</span>
+              <span>Parse</span><i>→</i><span>Orient</span><i>→</i><span>Reason</span><i>→</i><span>Ground</span>
             </div>
           </div>
         </div>
-        <div className="idea-grid">
+        <div className="abstract-highlights">
           <article>
-            <span>01</span>
-            <h3>Problem</h3>
-            <p>Directional language changes meaning with the observer or anchor orientation; evaluating it in a fixed world coordinate system creates systematic ambiguity.</p>
+            <span>Reference-aware</span>
+            <h3>Explicit local frames</h3>
+            <p>Object and observer orientations make <em>left</em>, <em>front</em>, and <em>behind</em> geometrically well-defined.</p>
           </article>
           <article>
-            <span>02</span>
-            <h3>Core idea</h3>
-            <p>Make the reference frame explicit and preserve it consistently from language parsing and geometric execution to the final visual prompt.</p>
+            <span>Training-free</span>
+            <h3>Neuro-symbolic grounding</h3>
+            <p>Symbolic execution filters candidates; aligned visual evidence resolves the remaining ambiguity.</p>
           </article>
           <article>
-            <span>03</span>
-            <h3>Technical innovation</h3>
-            <p>OriGround unifies viewpoint-aware symbolic programs, object-centric orientation bases, frame-conditioned relation scoring, and perspective-aligned VLM prompting.</p>
-          </article>
-          <article>
-            <span>04</span>
-            <h3>Why it works</h3>
-            <p>Symbolic reasoning removes geometrically incompatible objects, while aligned visual evidence resolves the remaining same-category ambiguity under the correct viewpoint.</p>
+            <span>Performance</span>
+            <h3>Stronger zero-shot results</h3>
+            <p><strong>61.3%</strong> Nr3D overall and <strong>52.4 / 42.8%</strong> ScanRefer Acc@0.25 / Acc@0.5—without task-specific grounding supervision.</p>
           </article>
         </div>
         <div className="abstract-examples">
           <div className="examples-heading">
             <p className="section-label">At a glance</p>
             <h3>Observer-Oriented Examples</h3>
-            <p>Explicit observer and anchor frames make viewpoint-dependent expressions directly interpretable across diverse indoor scenes.</p>
           </div>
           <PaperFigure
             src="/paper-figures/figure-5-qualitative.png"
@@ -188,7 +178,6 @@ export default function Home() {
           <div className="section-heading">
             <p className="section-label">Part II</p>
             <h2>Reasoning View</h2>
-            <p>Instance-centric observations and a perspective-aligned top-down map expose the visual evidence used to resolve observer-oriented language.</p>
           </div>
           <div className="reasoning-cases">
             <article className="reasoning-case">
@@ -255,7 +244,6 @@ export default function Home() {
         <div className="section-heading">
           <p className="section-label">Part III</p>
           <h2>Pipeline</h2>
-          <p>OriGround is organized into four connected stages that share one explicit reference frame from instruction to final answer.</p>
         </div>
         <PaperFigure
           src="/paper-figures/pipeline-complete.png"
@@ -282,7 +270,6 @@ export default function Home() {
           <div className="section-heading">
             <p className="section-label">Part IV</p>
             <h2>Benchmark Results</h2>
-            <p>Complete results on Nr3D and ScanRefer. OriGround remains training-free while closing much of the gap to supervised systems and establishing the strongest overall training-free performance.</p>
           </div>
 
           <article className="result-table-block">
@@ -355,7 +342,7 @@ export default function Home() {
       <footer>
         <div className="page-width footer-inner">
           <span>OriGround · EMNLP 2026 Findings</span>
-          <div><a href="/origround-paper.pdf" target="_blank" rel="noreferrer">Paper</a><a href="https://github.com/jinji-2005/Origround" target="_blank" rel="noreferrer">Code</a></div>
+          <div><a href="/origround-paper.pdf" target="_blank" rel="noreferrer">Paper</a><a href="https://github.com/origround/OriGround" target="_blank" rel="noreferrer">Code</a></div>
         </div>
       </footer>
     </main>
