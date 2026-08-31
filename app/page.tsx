@@ -165,6 +165,18 @@ export default function Home() {
             <p>Symbolic reasoning removes geometrically incompatible objects, while aligned visual evidence resolves the remaining same-category ambiguity under the correct viewpoint.</p>
           </article>
         </div>
+        <div className="abstract-examples">
+          <div className="examples-heading">
+            <p className="section-label">At a glance</p>
+            <h3>Observer-Oriented Examples</h3>
+            <p>Explicit observer and anchor frames make viewpoint-dependent expressions directly interpretable across diverse indoor scenes.</p>
+          </div>
+          <PaperFigure
+            src="/paper-figures/figure-5-qualitative.png"
+            alt="Ten qualitative examples of observer-oriented 3D visual grounding"
+            caption="Ten Observer-Oriented examples from Nr3D-VP. Blue denotes object categories, yellow denotes relation terms, and magenta denotes observer-oriented expressions; green boxes indicate predictions and red boxes indicate competing objects."
+          />
+        </div>
       </section>
 
       <section id="reasoning" className="section section-muted">
@@ -174,24 +186,64 @@ export default function Home() {
             <h2>Reasoning View</h2>
             <p>Instance-centric observations and a perspective-aligned top-down map expose the visual evidence used to resolve observer-oriented language.</p>
           </div>
-          <div className="reasoning-pair">
-            <PaperFigure
-              src="/paper-figures/reasoning-scene-views.png"
-              alt="Two room views shown before and after instance-centric target annotation"
-              caption="Instance-Centric Prompting. Candidate views center on the correct target object and expose local appearance evidence."
-            />
-            <PaperFigure
-              src="/paper-figures/reasoning-topdown-view.png"
-              alt="Perspective-aligned top-down map with the bed viewpoint anchor and two candidate lamps"
-              caption="Perspective-Aligned Prompting. The top-down map is rotated into the predicted observer viewpoint and annotated with anchor and candidate orientations."
-            />
+          <div className="reasoning-cases">
+            <article className="reasoning-case">
+              <div className="case-heading">
+                <span>Case 01</span>
+                <h3>“If you face the whiteboard, the chair is the one on the left closer to the board.”</h3>
+              </div>
+              <div className="reasoning-pair">
+                <PaperFigure
+                  src="/paper-figures/reasoning-case1-scenes.png"
+                  alt="Multiple room views centered on chair ID 3 near the whiteboard"
+                  caption="Instance-Centric Prompting. Multi-view evidence centers on the shortlisted chair."
+                />
+                <PaperFigure
+                  src="/paper-figures/reasoning-case1-topdown.png"
+                  alt="Perspective-aligned top-down map of four chairs facing a whiteboard"
+                  caption="Perspective-Aligned Prompting. The observer frame makes the whiteboard-relative left direction explicit."
+                />
+              </div>
+            </article>
+
+            <article className="reasoning-case">
+              <div className="case-heading">
+                <span>Case 02</span>
+                <h3>“The lamp to the right if you are lying on the bed. The lamp closest to the doll house.”</h3>
+              </div>
+              <div className="reasoning-pair">
+                <PaperFigure
+                  src="/paper-figures/reasoning-scene-views.png"
+                  alt="Two bedroom views shown before and after instance-centric lamp annotation"
+                  caption="Instance-Centric Prompting. Candidate views expose the lamp and its local bedroom context."
+                />
+                <PaperFigure
+                  src="/paper-figures/reasoning-topdown-view.png"
+                  alt="Perspective-aligned top-down map with the bed viewpoint anchor and two candidate lamps"
+                  caption="Perspective-Aligned Prompting. The map aligns the two candidate lamps with the predicted bed-centered viewpoint."
+                />
+              </div>
+            </article>
+
+            <article className="reasoning-case">
+              <div className="case-heading">
+                <span>Case 03</span>
+                <h3>“When standing at the foot of the bed, the pillow in the middle on the left hand side.”</h3>
+              </div>
+              <div className="reasoning-pair">
+                <PaperFigure
+                  src="/paper-figures/reasoning-case3-scenes.png"
+                  alt="Multiple bedroom views centered on pillow ID 12"
+                  caption="Instance-Centric Prompting. Candidate views isolate the target pillow among visually similar instances."
+                />
+                <PaperFigure
+                  src="/paper-figures/reasoning-case3-topdown.png"
+                  alt="Perspective-aligned top-down map of pillows around a bed"
+                  caption="Perspective-Aligned Prompting. The foot-of-bed observer frame resolves the middle-left pillow."
+                />
+              </div>
+            </article>
           </div>
-          <div className="figure-spacer" />
-          <PaperFigure
-            src="/paper-figures/figure-5-qualitative.png"
-            alt="Ten qualitative examples of observer-oriented 3D visual grounding"
-            caption="Ten Observer-Oriented examples from Nr3D-VP. Blue denotes object categories, yellow denotes relation terms, and magenta denotes observer-oriented expressions; green boxes indicate predictions and red boxes indicate competing objects."
-          />
         </div>
       </section>
 
