@@ -13,20 +13,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'OriGround — Orientation-Aware Zero-Shot 3D Visual Grounding',
+  title: 'OriGround: Orientation-Aware Neuro-Symbolic Zero-Shot 3D Visual Grounding',
   description:
-    'OriGround makes reference frames explicit for orientation-aware neuro-symbolic zero-shot 3D visual grounding.',
+    'OriGround explicitly models object-centric orientations and inferred viewpoints for zero-shot 3D visual grounding.',
   openGraph: {
-    title: 'OriGround — Ground language in 3D from the right point of view',
+    title: 'OriGround: Orientation-Aware Neuro-Symbolic Zero-Shot 3D Visual Grounding',
     description:
-      'Orientation-aware neuro-symbolic reasoning and perspective-aligned visual prompting for zero-shot 3D grounding.',
-    images: ['/visuals/orientation-full.png'],
+      'Viewpoint-aware parsing, object-centric orientation estimation, symbolic execution, and aligned visual prompting.',
+    images: ['/paper-figures/figure-2-overview.png'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'OriGround — Orientation-Aware 3D Visual Grounding',
-    description: 'Make the reference frame explicit.',
-    images: ['/visuals/orientation-full.png'],
+    title: 'OriGround: Orientation-Aware 3D Visual Grounding',
+    description: 'Explicit reference frames for zero-shot 3D visual grounding.',
+    images: ['/paper-figures/figure-2-overview.png'],
   },
 };
 
