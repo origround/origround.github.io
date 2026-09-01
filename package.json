@@ -1,5 +1,5 @@
 {
-  "name": "sites-project",
+  "name": "origround-project-site",
   "version": "0.1.0",
   "private": true,
   "engines": {
@@ -22,7 +22,6 @@
   "devDependencies": {
     "@cloudflare/vite-plugin": "1.54.2",
     "@cloudflare/workers-types": "5.20260831.1",
-    "@openai/sites-vite-plugin": "0.2.0",
     "@types/node": "22.19.19",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
