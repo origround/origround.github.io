@@ -112,11 +112,11 @@ a:focus-visible {
 .venue,
 .section-label,
 .stage-index {
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   color: var(--accent);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 750;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.075em;
   text-transform: uppercase;
 }
 
@@ -217,9 +217,9 @@ a:focus-visible {
 .abstract-lead > p {
   margin: 0 0 14px;
   color: var(--accent);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 750;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -249,7 +249,7 @@ a:focus-visible {
   padding-top: 20px;
   border-top: 1px solid var(--line);
   color: var(--accent-dark);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -287,9 +287,9 @@ a:focus-visible {
 
 .abstract-highlights article > span {
   color: var(--accent);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.065em;
   text-transform: uppercase;
 }
 
@@ -330,7 +330,7 @@ a:focus-visible {
 
 .abstract-examples > .paper-figure,
 #pipeline > .paper-figure {
-  width: min(100%, 1040px);
+  width: min(100%, 940px);
   margin-inline: auto;
 }
 
@@ -354,7 +354,7 @@ a:focus-visible {
   margin: 13px auto 0;
   color: #505963;
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.58;
 }
 
@@ -364,7 +364,7 @@ a:focus-visible {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 34px;
-  width: min(100%, 1080px);
+  width: min(100%, 960px);
   margin-inline: auto;
 }
 
@@ -408,9 +408,9 @@ a:focus-visible {
   padding-top: 5px;
   color: var(--accent);
   font-family: var(--font-geist-mono), monospace;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 750;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.065em;
   text-transform: uppercase;
 }
 
@@ -431,7 +431,7 @@ a:focus-visible {
 
 .stage-block {
   display: grid;
-  grid-template-columns: minmax(250px, 0.34fr) minmax(0, 0.66fr);
+  grid-template-columns: minmax(340px, 0.43fr) minmax(0, 0.57fr);
   align-items: center;
   gap: 42px;
   padding: 44px 0;
@@ -448,8 +448,13 @@ a:focus-visible {
 .stage-copy > p:last-child {
   margin: 15px 0 0;
   color: #46505a;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.72;
+}
+
+.stage-block > .paper-figure {
+  width: min(100%, 610px);
+  justify-self: end;
 }
 
 .paper-figure.compact .figure-image {
@@ -464,11 +469,13 @@ a:focus-visible {
 }
 
 .paper-figure.compact figcaption {
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .result-table-block {
+  width: min(100%, 1040px);
   margin-top: 48px;
+  margin-inline: auto;
 }
 
 .result-table-block + .result-table-block {
@@ -492,7 +499,7 @@ a:focus-visible {
 .table-heading p {
   margin: 0;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 14px;
   text-align: right;
 }
 
@@ -516,7 +523,7 @@ caption {
   padding: 12px 15px;
   border-bottom: 1px solid var(--line-strong);
   color: #4b545e;
-  font-size: 12px;
+  font-size: 13px;
   text-align: left;
 }
 
@@ -609,6 +616,7 @@ footer {
   .reasoning-pair { grid-template-columns: 1fr; }
   .reasoning-pair .figure-image { height: auto; min-height: 360px; }
   .stage-block { grid-template-columns: 1fr; gap: 24px; }
+  .stage-block > .paper-figure { width: min(100%, 680px); justify-self: center; }
   .paper-figure.compact .figure-image { max-height: none; }
   .paper-figure.compact .figure-image img { max-height: none; }
 }
