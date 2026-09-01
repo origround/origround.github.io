@@ -119,7 +119,7 @@ export default function Home() {
       </header>
 
       <section id="top" className="hero page-width">
-        <p className="venue">EMNLP 2026 Findings</p>
+        <p className="venue">Findings of EMNLP 2026</p>
         <h1>
           <span className="hero-brand">OriGround:</span>{' '}
           <span className="hero-title-copy"><span>Orientation-Aware Neuro-Symbolic</span>{' '}<span>Zero-Shot 3D Visual Grounding</span></span>
