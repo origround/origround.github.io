@@ -119,64 +119,56 @@ export default function Home() {
       </header>
 
       <section id="top" className="hero page-width">
-        <div className="hero-layout">
-          <div className="hero-copy">
-            <p className="venue">Findings of EMNLP 2026</p>
-            <h1>
-              <span className="hero-brand">OriGround</span>
-              <span className="hero-title-copy"><span>Orientation-Aware Neuro-Symbolic</span><span>Zero-Shot 3D Visual Grounding</span></span>
-            </h1>
-            <div className="hero-meta">
-              <p className="authors">Haochen Li, Jiaxin Shi, Ruonan Liu, Luo Liufu</p>
-              <div className="resource-links" aria-label="Project resources">
-                <a href="/origround-paper.pdf" target="_blank" rel="noreferrer">Read paper <span aria-hidden="true">↗</span></a>
-                <span className="resource-link-disabled" aria-label="Code repository coming soon">Code coming soon</span>
-              </div>
-            </div>
-          </div>
-          <aside className="reference-frame" aria-label="Object-centric orientation reference frame">
-            <div className="frame-drawing" aria-hidden="true">
-              <span className="frame-object">object</span>
-              <span className="frame-axis frame-front"><i />front</span>
-              <span className="frame-axis frame-right"><i />right</span>
-              <span className="frame-axis frame-observer"><i />observer</span>
-            </div>
-            <p><span>Reference frame 01</span>Spatial language becomes measurable when every direction has an origin.</p>
-          </aside>
+        <p className="venue">EMNLP 2026 Findings</p>
+        <h1>
+          <span className="hero-brand">OriGround:</span>{' '}
+          <span className="hero-title-copy"><span>Orientation-Aware Neuro-Symbolic</span>{' '}<span>Zero-Shot 3D Visual Grounding</span></span>
+        </h1>
+        <p className="authors">Haochen Li, Jiaxin Shi, Ruonan Liu, Luo Liufu</p>
+        <div className="resource-links" aria-label="Project resources">
+          <a href="/origround-paper.pdf" target="_blank" rel="noreferrer">Paper</a>
+          <span className="resource-link-disabled" aria-label="Code repository coming soon">Code · Coming Soon</span>
         </div>
       </section>
 
       <section id="abstract" className="section page-width">
-        <div className="abstract-heading">
-          <p>Abstract</p>
-          <h2>A reference frame changes what <em>left</em> means.</h2>
+        <div className="section-heading">
+          <p className="section-label">Part I</p>
+          <h2>Abstract</h2>
         </div>
-        <div className="abstract-editorial">
-          <div className="abstract-question">
-            <p>Zero-shot 3D visual grounding usually knows <em>what</em> objects are and <em>where</em> they sit—but not which way they face.</p>
-            <span>That missing orientation makes viewpoint-dependent expressions ambiguous.</span>
+        <div className="abstract-overview">
+          <div className="abstract-lead">
+            <p>Core insight</p>
+            <h3>Grounding spatial language requires a reference frame—not just a bounding box.</h3>
           </div>
-          <div className="abstract-answer">
-            <p>OriGround estimates object-centric orientations from multi-view observations, converts language into a viewpoint-aware symbolic program, and evaluates each spatial relation in the correct anchor or observer frame. A compact visual prompt then lets a VLM resolve the final ambiguity.</p>
-            <div className="abstract-sequence" aria-label="OriGround reasoning sequence">
-              <span><b>Language</b> referring expression</span>
-              <i aria-hidden="true">→</i>
-              <span><b>Frame</b> object + observer</span>
-              <i aria-hidden="true">→</i>
-              <span><b>Target</b> grounded object</span>
+          <div className="abstract-summary">
+            <p>OriGround estimates object orientations, parses viewpoint-aware symbolic programs, and evaluates relations in the correct anchor or observer frame before VLM disambiguation.</p>
+            <div className="abstract-flow" aria-label="OriGround reasoning flow">
+              <span>Parse</span><i>→</i><span>Orient</span><i>→</i><span>Reason</span><i>→</i><span>Ground</span>
             </div>
           </div>
         </div>
-        <div className="abstract-evidence" aria-label="Key results">
-          <div><strong>61.3</strong><span>Nr3D overall accuracy</span></div>
-          <div><strong>+8.4</strong><span>points over the strongest training-free baseline</span></div>
-          <div><strong>+8.9</strong><span>points on hard viewpoint-dependent queries</span></div>
-          <p>No task-specific grounding supervision</p>
+        <div className="abstract-highlights">
+          <article>
+            <span>Reference-aware</span>
+            <h3>Explicit local frames</h3>
+            <p>Object and observer orientations make <em>left</em>, <em>front</em>, and <em>behind</em> geometrically well-defined.</p>
+          </article>
+          <article>
+            <span>Training-free</span>
+            <h3>Neuro-symbolic grounding</h3>
+            <p>Symbolic execution filters candidates; aligned visual evidence resolves the remaining ambiguity.</p>
+          </article>
+          <article>
+            <span>Performance</span>
+            <h3>Stronger zero-shot results</h3>
+            <p><strong>61.3%</strong> Nr3D overall and <strong>52.4 / 42.8%</strong> ScanRefer Acc@0.25 / Acc@0.5—without task-specific grounding supervision.</p>
+          </article>
         </div>
         <div className="abstract-examples">
           <div className="examples-heading">
-            <p>Qualitative evidence</p>
-            <h3>Orientation turns perspective into geometry.</h3>
+            <p className="section-label">At a glance</p>
+            <h3>Observer-Oriented Examples</h3>
           </div>
           <PaperFigure
             src="/paper-figures/figure-5-qualitative.png"
