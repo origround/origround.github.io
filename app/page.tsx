@@ -77,7 +77,10 @@ const stages = [
 function PaperFigure({ src, alt, caption, compact = false }: { src: string; alt: string; caption: string; compact?: boolean }) {
   return (
     <figure className={`paper-figure${compact ? ' compact' : ''}`}>
-      <div className="figure-image"><img src={src} alt={alt} /></div>
+      <div className="figure-image">
+        {/* oxlint-disable-next-line next/no-img-element -- GitHub Pages has no image optimization server. */}
+        <img src={src} alt={alt} loading="lazy" decoding="async" />
+      </div>
       <figcaption>{caption}</figcaption>
     </figure>
   );
@@ -99,7 +102,9 @@ function ResultRows({ rows }: { rows: ResultRow[] }) {
 
 export default function Home() {
   return (
-    <main>
+    <>
+      <a className="skip-link" href="#abstract">Skip to paper content</a>
+      <main>
       <header className="topbar">
         <div className="page-width nav-inner">
           <a className="site-name" href="#top">OriGround</a>
@@ -344,7 +349,8 @@ export default function Home() {
           <span>OriGround · EMNLP 2026 Findings</span>
           <div><a href="/origround-paper.pdf" target="_blank" rel="noreferrer">Paper</a><a href="https://github.com/origround/OriGround" target="_blank" rel="noreferrer">Code</a></div>
         </div>
-      </footer>
-    </main>
+        </footer>
+      </main>
+    </>
   );
 }

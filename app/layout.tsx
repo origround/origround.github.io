@@ -17,6 +17,13 @@ export const metadata: Metadata = {
   title: 'OriGround: Orientation-Aware Neuro-Symbolic Zero-Shot 3D Visual Grounding',
   description:
     'OriGround explicitly models object-centric orientations and inferred viewpoints for zero-shot 3D visual grounding.',
+  authors: [
+    { name: 'Haochen Li' },
+    { name: 'Jiaxin Shi' },
+    { name: 'Ruonan Liu' },
+    { name: 'Luo Liufu' },
+  ],
+  alternates: { canonical: '/' },
   openGraph: {
     title: 'OriGround: Orientation-Aware Neuro-Symbolic Zero-Shot 3D Visual Grounding',
     description:
