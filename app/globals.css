@@ -142,7 +142,8 @@ a:focus-visible {
   margin-top: 23px;
 }
 
-.resource-links a {
+.resource-links a,
+.resource-link-disabled {
   min-width: 105px;
   padding: 9px 20px;
   border: 1px solid var(--accent-dark);
@@ -154,9 +155,10 @@ a:focus-visible {
   line-height: 1.2;
 }
 
-.resource-links a:last-child {
+.resource-link-disabled {
   background: #fff;
-  color: var(--accent-dark);
+  color: var(--muted);
+  cursor: default;
 }
 
 .resource-links a:hover {
