@@ -672,6 +672,63 @@ a:focus-visible {
   max-width: 500px;
 }
 
+.reasoning-caption {
+  display: grid;
+  gap: 5px;
+}
+
+.reasoning-caption > strong {
+  color: var(--ink);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 680;
+  letter-spacing: -0.01em;
+}
+
+.reasoning-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2px 14px;
+  color: var(--muted);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.reasoning-legend > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.reasoning-legend > span + span::before {
+  margin-right: 8px;
+  color: var(--line-strong);
+  content: '·';
+}
+
+.legend-box {
+  display: inline-block;
+  width: 12px;
+  height: 9px;
+  border: 2px solid currentColor;
+}
+
+.legend-arrow {
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 0.7;
+}
+
+.legend-red { color: #d82722; }
+.legend-yellow { color: #d6a900; }
+.legend-green { color: #0a9c35; }
+
 .reasoning-cases {
   border-top: 1px solid var(--line);
 }

@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react';
+
 type ResultRow = {
   method: string;
   supervised: boolean;
@@ -87,7 +89,7 @@ const qualitativeExamples = [
   { id: 10, query: 'Facing the shelves, the lone pillow on the far right.', alt: 'Top-down room scene with a predicted pillow highlighted in green' },
 ];
 
-function PaperFigure({ src, alt, caption, compact = false, className = '' }: { src: string; alt: string; caption?: string; compact?: boolean; className?: string }) {
+function PaperFigure({ src, alt, caption, compact = false, className = '' }: { src: string; alt: string; caption?: ReactNode; compact?: boolean; className?: string }) {
   return (
     <figure className={`paper-figure${compact ? ' compact' : ''}${className ? ` ${className}` : ''}`}>
       <div className="figure-image">
@@ -96,6 +98,31 @@ function PaperFigure({ src, alt, caption, compact = false, className = '' }: { s
       </div>
       {caption ? <figcaption>{caption}</figcaption> : null}
     </figure>
+  );
+}
+
+function ReasoningCaption({ view }: { view: 'scene' | 'topdown' }) {
+  const isScene = view === 'scene';
+
+  return (
+    <span className="reasoning-caption">
+      <strong>
+        {isScene ? 'Instance-Centric Prompting · Scene views' : 'Perspective-Aligned Prompting · Top-down view'}
+      </strong>
+      <span className="reasoning-legend">
+        {isScene ? (
+          <>
+            <span><i className="legend-box legend-red" aria-hidden="true" />candidate objects</span>
+            <span><i className="legend-box legend-yellow" aria-hidden="true" />reference anchor</span>
+          </>
+        ) : (
+          <>
+            <span><i className="legend-arrow legend-green" aria-hidden="true">→</i>predicted observer direction</span>
+            <span><i className="legend-arrow legend-yellow" aria-hidden="true">→</i>anchor orientation</span>
+          </>
+        )}
+      </span>
+    </span>
   );
 }
 
@@ -234,12 +261,12 @@ export default function Home() {
                 <PaperFigure
                   src="/paper-figures/reasoning-case1-scenes.png"
                   alt="Multiple room views centered on chair ID 3 near the whiteboard"
-                  caption="Instance-Centric Prompting. Multi-view evidence centers on the shortlisted chair."
+                  caption={<ReasoningCaption view="scene" />}
                 />
                 <PaperFigure
                   src="/paper-figures/reasoning-case1-topdown.png"
                   alt="Perspective-aligned top-down map of four chairs facing a whiteboard"
-                  caption="Perspective-Aligned Prompting. The observer frame makes the whiteboard-relative left direction explicit."
+                  caption={<ReasoningCaption view="topdown" />}
                 />
               </div>
             </article>
@@ -253,12 +280,12 @@ export default function Home() {
                 <PaperFigure
                   src="/paper-figures/reasoning-scene-views.png"
                   alt="Two bedroom views shown before and after instance-centric lamp annotation"
-                  caption="Instance-Centric Prompting. Candidate views expose the lamp and its local bedroom context."
+                  caption={<ReasoningCaption view="scene" />}
                 />
                 <PaperFigure
                   src="/paper-figures/reasoning-topdown-view.png"
                   alt="Perspective-aligned top-down map with the bed viewpoint anchor and two candidate lamps"
-                  caption="Perspective-Aligned Prompting. The map aligns the two candidate lamps with the predicted bed-centered viewpoint."
+                  caption={<ReasoningCaption view="topdown" />}
                 />
               </div>
             </article>
@@ -272,12 +299,12 @@ export default function Home() {
                 <PaperFigure
                   src="/paper-figures/reasoning-case3-scenes.png"
                   alt="Multiple bedroom views centered on pillow ID 12"
-                  caption="Instance-Centric Prompting. Candidate views isolate the target pillow among visually similar instances."
+                  caption={<ReasoningCaption view="scene" />}
                 />
                 <PaperFigure
                   src="/paper-figures/reasoning-case3-topdown.png"
                   alt="Perspective-aligned top-down map of pillows around a bed"
-                  caption="Perspective-Aligned Prompting. The foot-of-bed observer frame resolves the middle-left pillow."
+                  caption={<ReasoningCaption view="topdown" />}
                 />
               </div>
             </article>
