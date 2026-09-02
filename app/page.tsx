@@ -126,6 +126,27 @@ function ReasoningCaption({ view }: { view: 'scene' | 'topdown' }) {
   );
 }
 
+function PipelineCaption() {
+  const steps = [
+    { letter: 'A', label: 'Parse language' },
+    { letter: 'B', label: 'Extract orientations' },
+    { letter: 'C', label: 'Execute program' },
+    { letter: 'D', label: 'Prompt VLM' },
+  ];
+
+  return (
+    <ol className="pipeline-steps" aria-label="OriGround four-stage pipeline">
+      {steps.map((step, index) => (
+        <li className={`pipeline-step pipeline-step-${step.letter.toLowerCase()}`} key={step.letter}>
+          {index > 0 ? <i className="pipeline-arrow" aria-hidden="true">→</i> : null}
+          <b>{step.letter}</b>
+          <strong>{step.label}</strong>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
 function QualitativeExample({ example, featured = false }: { example: (typeof qualitativeExamples)[number]; featured?: boolean }) {
   return (
     <article className={`qualitative-card${featured ? ' qualitative-featured' : ''}`}>
@@ -320,7 +341,7 @@ export default function Home() {
         <PaperFigure
           src="/paper-figures/figure-2-overview.png"
           alt="OriGround pipeline connecting language parsing, orientation extraction, orientation-aware execution, and VLM prompting"
-          caption="OriGround connects viewpoint-aware language parsing, object-centric orientation extraction, neural program execution, and aligned visual prompting."
+          caption={<PipelineCaption />}
           className="pipeline-overview"
         />
 
