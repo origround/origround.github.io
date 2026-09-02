@@ -74,14 +74,14 @@ const stages = [
   },
 ];
 
-function PaperFigure({ src, alt, caption, compact = false }: { src: string; alt: string; caption: string; compact?: boolean }) {
+function PaperFigure({ src, alt, caption, compact = false }: { src: string; alt: string; caption?: string; compact?: boolean }) {
   return (
     <figure className={`paper-figure${compact ? ' compact' : ''}`}>
       <div className="figure-image">
         {/* oxlint-disable-next-line next/no-img-element -- GitHub Pages has no image optimization server. */}
         <img src={src} alt={alt} loading="lazy" decoding="async" />
       </div>
-      <figcaption>{caption}</figcaption>
+      {caption ? <figcaption>{caption}</figcaption> : null}
     </figure>
   );
 }
@@ -264,7 +264,7 @@ export default function Home() {
                 <h3>{stage.title}</h3>
                 <p>{stage.text}</p>
               </div>
-              <PaperFigure src={stage.src} alt={stage.alt} caption={`Stage ${stage.letter}. ${stage.title}.`} compact />
+              <PaperFigure src={stage.src} alt={stage.alt} compact />
             </article>
           ))}
         </div>
