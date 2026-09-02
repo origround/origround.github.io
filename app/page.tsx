@@ -233,8 +233,8 @@ export default function Home() {
             <h3>Observer-Oriented Examples</h3>
           </div>
           <div className="qualitative-intro">
-            <p>Each query defines a local viewpoint before applying directional language. Green boxes mark OriGround predictions; red boxes mark competing objects.</p>
-            <div aria-label="Qualitative result legend"><span><i className="legend-prediction" />Prediction</span><span><i className="legend-competitor" />Competitor</span></div>
+            <p>Each query defines a local viewpoint before applying directional language. Green boxes mark OriGround predictions; red boxes mark distractors.</p>
+            <div aria-label="Qualitative result legend"><span><i className="legend-prediction" />Prediction</span><span><i className="legend-distractor" />Distractor</span></div>
           </div>
           <div className="qualitative-showcase">
             <QualitativeExample example={qualitativeExamples[4]} featured />

@@ -469,13 +469,13 @@ a:focus-visible {
 
 .qualitative-intro i {
   display: inline-block;
-  width: 14px;
-  height: 8px;
-  border: 2px solid;
+  width: 18px;
+  height: 10px;
+  border: 3px solid;
 }
 
 .legend-prediction { border-color: #35b739 !important; }
-.legend-competitor { border-color: #e64a3c !important; }
+.legend-distractor { border-color: #e64a3c !important; }
 
 .qualitative-showcase {
   display: grid;
