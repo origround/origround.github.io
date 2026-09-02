@@ -74,15 +74,50 @@ const stages = [
   },
 ];
 
-function PaperFigure({ src, alt, caption, compact = false }: { src: string; alt: string; caption?: string; compact?: boolean }) {
+const qualitativeExamples = [
+  { id: 1, query: 'Facing the wall with cards, the couch to the lower left corner.', alt: 'Top-down scene with a predicted couch highlighted in green and a competing couch in red' },
+  { id: 2, query: 'Facing the door, the table on the left.', alt: 'Top-down office scene with the predicted left table highlighted in green' },
+  { id: 3, query: 'When standing in the middle of the room facing the windows, the correct one is on the left.', alt: 'Top-down room scene with two candidate windows and the left one highlighted in green' },
+  { id: 4, query: 'Facing the two large windows, the window on the left.', alt: 'Top-down office scene with two large windows marked as candidates' },
+  { id: 5, query: 'If you face the whiteboard, the chair is the one on the left closer to the board.', alt: 'Top-down meeting room scene with four candidate chairs relative to a whiteboard' },
+  { id: 6, query: 'The desk to the left when facing the door.', alt: 'Top-down office scene with candidate desks marked in green and red' },
+  { id: 7, query: "With your back to the door, it's the desk on the right side.", alt: 'Top-down office scene with the right-side desk highlighted in green' },
+  { id: 8, query: 'The lamp nearest the two strange chairs. The lamp to the right if you are sitting on the loveseat.', alt: 'Top-down living room scene with two candidate lamps highlighted' },
+  { id: 9, query: 'When standing at the foot of the bed, the pillow in the middle on the left hand side.', alt: 'Top-down bedroom scene with candidate pillows around a bed' },
+  { id: 10, query: 'Facing the shelves, the lone pillow on the far right.', alt: 'Top-down room scene with a predicted pillow highlighted in green' },
+];
+
+function PaperFigure({ src, alt, caption, compact = false, className = '' }: { src: string; alt: string; caption?: string; compact?: boolean; className?: string }) {
   return (
-    <figure className={`paper-figure${compact ? ' compact' : ''}`}>
+    <figure className={`paper-figure${compact ? ' compact' : ''}${className ? ` ${className}` : ''}`}>
       <div className="figure-image">
         {/* oxlint-disable-next-line next/no-img-element -- GitHub Pages has no image optimization server. */}
         <img src={src} alt={alt} loading="lazy" decoding="async" />
       </div>
       {caption ? <figcaption>{caption}</figcaption> : null}
     </figure>
+  );
+}
+
+function QualitativeExample({ example, featured = false }: { example: (typeof qualitativeExamples)[number]; featured?: boolean }) {
+  return (
+    <article className={`qualitative-card${featured ? ' qualitative-featured' : ''}`}>
+      <div className="qualitative-image">
+        {/* oxlint-disable-next-line next/no-img-element -- GitHub Pages has no image optimization server. */}
+        <img src={`/qualitative-examples/image${example.id}.png`} alt={example.alt} loading="lazy" decoding="async" />
+      </div>
+      <div className="qualitative-copy">
+        <p className="qualitative-index">Case {String(example.id).padStart(2, '0')}</p>
+        <blockquote>“{example.query}”</blockquote>
+        {featured ? (
+          <dl className="frame-breakdown">
+            <div><dt>Anchor</dt><dd>whiteboard</dd></div>
+            <div><dt>Viewpoint</dt><dd>face the anchor</dd></div>
+            <div><dt>Decision</dt><dd>left + closer</dd></div>
+          </dl>
+        ) : null}
+      </div>
+    </article>
   );
 }
 
@@ -167,14 +202,19 @@ export default function Home() {
         </div>
         <div className="abstract-examples">
           <div className="examples-heading">
-            <p className="section-label">At a glance</p>
+            <p className="section-label">Qualitative evidence</p>
             <h3>Observer-Oriented Examples</h3>
           </div>
-          <PaperFigure
-            src="/paper-figures/figure-5-qualitative.png"
-            alt="Ten qualitative examples of observer-oriented 3D visual grounding"
-            caption="Ten Observer-Oriented examples from Nr3D-VP. Blue denotes object categories, yellow denotes relation terms, and magenta denotes observer-oriented expressions; green boxes indicate predictions and red boxes indicate competing objects."
-          />
+          <div className="qualitative-intro">
+            <p>Each query defines a local viewpoint before applying directional language. Green boxes mark OriGround predictions; red boxes mark competing objects.</p>
+            <div aria-label="Qualitative result legend"><span><i className="legend-prediction" />Prediction</span><span><i className="legend-competitor" />Competitor</span></div>
+          </div>
+          <div className="qualitative-showcase">
+            <QualitativeExample example={qualitativeExamples[4]} featured />
+            {qualitativeExamples.filter((example) => example.id !== 5).map((example) => (
+              <QualitativeExample key={example.id} example={example} />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -251,9 +291,10 @@ export default function Home() {
           <h2>Pipeline</h2>
         </div>
         <PaperFigure
-          src="/paper-figures/pipeline-complete.png"
-          alt="Complete OriGround pipeline showing all four stages and the neural program executor working process"
-          caption="Complete OriGround architecture. The upper panel connects language parsing, orientation extraction, orientation-aware execution, and VLM prompting; the lower panel details the neural program executor."
+          src="/paper-figures/figure-2-overview.png"
+          alt="OriGround pipeline connecting language parsing, orientation extraction, orientation-aware execution, and VLM prompting"
+          caption="OriGround connects viewpoint-aware language parsing, object-centric orientation extraction, neural program execution, and aligned visual prompting."
+          className="pipeline-overview"
         />
 
         <div className="stage-list">
@@ -264,7 +305,7 @@ export default function Home() {
                 <h3>{stage.title}</h3>
                 <p>{stage.text}</p>
               </div>
-              <PaperFigure src={stage.src} alt={stage.alt} compact />
+              <PaperFigure src={stage.src} alt={stage.alt} className={`stage-figure stage-figure-${stage.letter.toLowerCase()}`} compact />
             </article>
           ))}
         </div>
