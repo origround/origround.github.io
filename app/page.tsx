@@ -77,7 +77,7 @@ const stages = [
 ];
 
 const qualitativeExamples = [
-  { id: 1, query: 'Facing the wall with cards, the couch to the lower left corner.', alt: 'Top-down scene with a predicted couch highlighted in green and a competing couch in red' },
+  { id: 1, query: 'Facing the wall with cards, the couch to the lower left corner.', alt: 'Top-down scene with a predicted couch highlighted in green and a distractor couch in red' },
   { id: 2, query: 'Facing the door, the table on the left.', alt: 'Top-down office scene with the predicted left table highlighted in green' },
   { id: 3, query: 'When standing in the middle of the room facing the windows, the correct one is on the left.', alt: 'Top-down room scene with two candidate windows and the left one highlighted in green' },
   { id: 4, query: 'Facing the two large windows, the window on the left.', alt: 'Top-down office scene with two large windows marked as candidates' },
