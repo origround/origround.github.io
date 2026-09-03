@@ -112,13 +112,13 @@ function ReasoningCaption({ view }: { view: 'scene' | 'topdown' }) {
       <span className="reasoning-legend">
         {isScene ? (
           <>
-            <span><i className="legend-box legend-red" aria-hidden="true" />candidate objects</span>
-            <span><i className="legend-box legend-yellow" aria-hidden="true" />reference anchor</span>
+            <span><i className="legend-box legend-candidate" aria-hidden="true" />candidate objects</span>
+            <span><i className="legend-box legend-anchor-box" aria-hidden="true" />reference anchor</span>
           </>
         ) : (
           <>
-            <span><i className="legend-arrow legend-green" aria-hidden="true">→</i>predicted observer direction</span>
-            <span><i className="legend-arrow legend-yellow" aria-hidden="true">→</i>anchor orientation</span>
+            <span><i className="legend-arrow legend-observer-arrow" aria-hidden="true">→</i>predicted observer direction</span>
+            <span><i className="legend-arrow legend-anchor-arrow" aria-hidden="true">→</i>anchor orientation</span>
           </>
         )}
       </span>

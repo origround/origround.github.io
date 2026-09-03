@@ -771,12 +771,12 @@ a:focus-visible {
   font-style: normal;
   font-weight: 800;
   line-height: 0.7;
-  -webkit-text-stroke: 0.35px rgba(16, 42, 54, 0.55);
 }
 
-.legend-red { color: #d82722; }
-.legend-yellow { color: #ffff00; }
-.legend-green { color: #00ff00; }
+.legend-candidate { color: #d92d27; }
+.legend-anchor-box { color: #d8a900; }
+.legend-observer-arrow { color: #169b39; }
+.legend-anchor-arrow { color: #c99a00; }
 
 .reasoning-cases {
   border-top: 1px solid var(--line);
