@@ -339,7 +339,7 @@ export default function Home() {
           <h2>Pipeline</h2>
         </div>
         <PaperFigure
-          src="/paper-figures/figure-2-overview.png"
+          src="/paper-figures/pipeline-overview-clean.png"
           alt="OriGround pipeline connecting language parsing, orientation extraction, orientation-aware execution, and VLM prompting"
           caption={<PipelineCaption />}
           className="pipeline-overview"
