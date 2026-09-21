@@ -81,7 +81,6 @@ const qualitativeExamples = [
   { id: 2, query: 'Facing the door, the table on the left.', alt: 'Top-down office scene with the predicted left table highlighted in green' },
   { id: 3, query: 'When standing in the middle of the room facing the windows, the correct one is on the left.', alt: 'Top-down room scene with two candidate windows and the left one highlighted in green' },
   { id: 4, query: 'Facing the two large windows, the window on the left.', alt: 'Top-down office scene with two large windows marked as candidates' },
-  { id: 5, query: 'If you face the whiteboard, the chair is the one on the left closer to the board.', alt: 'Top-down meeting room scene with four candidate chairs relative to a whiteboard' },
   { id: 6, query: 'The desk to the left when facing the door.', alt: 'Top-down office scene with candidate desks marked in green and red' },
   { id: 7, query: "With your back to the door, it's the desk on the right side.", alt: 'Top-down office scene with the right-side desk highlighted in green' },
   { id: 8, query: 'The lamp nearest the two strange chairs. The lamp to the right if you are sitting on the loveseat.', alt: 'Top-down living room scene with two candidate lamps highlighted' },
@@ -147,9 +146,9 @@ function PipelineCaption() {
   );
 }
 
-function QualitativeExample({ example, featured = false }: { example: (typeof qualitativeExamples)[number]; featured?: boolean }) {
+function QualitativeExample({ example }: { example: (typeof qualitativeExamples)[number] }) {
   return (
-    <article className={`qualitative-card${featured ? ' qualitative-featured' : ''}`}>
+    <article className="qualitative-card">
       <div className="qualitative-image">
         {/* oxlint-disable-next-line next/no-img-element -- GitHub Pages has no image optimization server. */}
         <img src={`/qualitative-examples/image${example.id}.png`} alt={example.alt} loading="lazy" decoding="async" />
@@ -157,13 +156,6 @@ function QualitativeExample({ example, featured = false }: { example: (typeof qu
       <div className="qualitative-copy">
         <p className="qualitative-index">Case {String(example.id).padStart(2, '0')}</p>
         <blockquote>“{example.query}”</blockquote>
-        {featured ? (
-          <dl className="frame-breakdown">
-            <div><dt>Anchor</dt><dd>whiteboard</dd></div>
-            <div><dt>Viewpoint</dt><dd>face the anchor</dd></div>
-            <div><dt>Decision</dt><dd>left + closer</dd></div>
-          </dl>
-        ) : null}
       </div>
     </article>
   );
@@ -222,7 +214,7 @@ export default function Home() {
         <div className="abstract-overview">
           <div className="abstract-lead">
             <p>Core insight</p>
-            <h3>Grounding spatial language requires a reference frame—not just a bounding box.</h3>
+            <h3>Use orientation to reason about spatial relations and predict the viewpoint.</h3>
           </div>
           <div className="abstract-summary">
             <p>OriGround estimates object orientations, parses viewpoint-aware symbolic programs, and evaluates relations in the correct anchor or observer frame before VLM disambiguation.</p>
@@ -258,8 +250,7 @@ export default function Home() {
             <div aria-label="Qualitative result legend"><span><i className="legend-prediction" />Prediction</span><span><i className="legend-distractor" />Distractor</span></div>
           </div>
           <div className="qualitative-showcase">
-            <QualitativeExample example={qualitativeExamples[4]} featured />
-            {qualitativeExamples.filter((example) => example.id !== 5).map((example) => (
+            {qualitativeExamples.map((example) => (
               <QualitativeExample key={example.id} example={example} />
             ))}
           </div>
