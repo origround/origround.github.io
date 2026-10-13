@@ -210,7 +210,7 @@ export default function Home() {
         <p className="authors">Haochen Li, Jiaxin Shi, Ruonan Liu, Luo Liufu</p>
         <div className="resource-links" aria-label="Project resources">
           <a href="/origround-paper.pdf" target="_blank" rel="noreferrer">Paper</a>
-          <span className="resource-link-disabled" aria-label="Code repository coming soon">Code · Coming Soon</span>
+          <a href="https://github.com/origround/OriGround" target="_blank" rel="noreferrer">Code</a>
         </div>
       </section>
 
@@ -436,7 +436,7 @@ export default function Home() {
       <footer>
         <div className="page-width footer-inner">
           <span>OriGround · EMNLP 2026 Findings</span>
-          <div><a href="/origround-paper.pdf" target="_blank" rel="noreferrer">Paper</a><span>Code coming soon</span></div>
+          <div><a href="/origround-paper.pdf" target="_blank" rel="noreferrer">Paper</a><a href="https://github.com/origround/OriGround" target="_blank" rel="noreferrer">Code</a></div>
         </div>
         </footer>
       </main>
