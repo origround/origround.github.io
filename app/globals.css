@@ -263,64 +263,66 @@ a:focus-visible {
 
 /* Abstract */
 .abstract-overview {
-  display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
-  overflow: hidden;
+  padding: 42px 56px 38px;
   border-radius: var(--radius);
   background: var(--wash);
+  text-align: center;
 }
 .abstract-lead,
 .abstract-summary {
   min-width: 0;
-  padding: 44px 46px;
-}
-.abstract-lead {
-  background: var(--accent-soft);
 }
 .abstract-lead > p {
-  margin: 0 0 14px;
+  margin: 0 0 16px;
   color: var(--accent);
   font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.055em;
-  text-transform: uppercase;
+  font-weight: 650;
+  letter-spacing: 0.02em;
 }
 .abstract-lead h3 {
-  margin: 0;
+  max-width: 800px;
+  margin: 0 auto;
   color: var(--ink);
   font-family: var(--font-display), Georgia, serif;
-  font-size: clamp(30px, 2.65vw, 38px);
-  font-weight: 540;
-  letter-spacing: -0.03em;
-  line-height: 1.22;
+  font-size: clamp(28px, 2.8vw, 36px);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+}
+.abstract-lead h3 em {
+  color: var(--accent);
+  font-weight: inherit;
+}
+.insight-phrase {
+  white-space: nowrap;
 }
 .abstract-summary {
-  align-self: center;
+  max-width: 740px;
+  margin: 20px auto 0;
 }
 .abstract-summary > p {
   margin: 0;
   font-size: 16px;
   line-height: 1.8;
+  text-wrap: balance;
 }
 .abstract-flow {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  margin-top: 28px;
-  padding-top: 20px;
-  border-top: 1px solid var(--line);
+  max-width: 480px;
+  margin: 26px auto 0;
   color: var(--accent-dark);
-  font-size: 13px;
-  font-weight: 680;
-  letter-spacing: 0.025em;
-  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 650;
 }
 .abstract-flow i {
-  color: var(--accent);
-  font-family: var(--font-display), Georgia, serif;
-  font-size: 19px;
+  color: var(--line-strong);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
   font-style: normal;
+  line-height: 1;
 }
 .abstract-highlights {
   display: grid;
@@ -998,12 +1000,6 @@ footer {
   .hero-title-copy {
     font-size: clamp(21px, 3vw, 24px);
   }
-  .abstract-overview {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .abstract-lead {
-    border-bottom: 1px solid var(--line);
-  }
   .abstract-highlights {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -1093,14 +1089,15 @@ footer {
   .section-heading {
     margin-bottom: 34px;
   }
-  .abstract-lead,
-  .abstract-summary {
-    padding: 28px 24px;
+  .abstract-overview {
+    padding: 30px 24px;
+  }
+  .abstract-summary > p {
+    font-size: 15px;
   }
   .abstract-flow {
     gap: 6px;
     font-size: 12px;
-    letter-spacing: 0;
   }
   .abstract-highlights article {
     min-height: 0;
@@ -1220,9 +1217,8 @@ footer {
   }
 }
 @media (max-width: 359px) {
-  .abstract-lead,
-  .abstract-summary {
-    padding: 24px 18px;
+  .abstract-overview {
+    padding-inline: 18px;
   }
   .abstract-flow {
     gap: 4px;
