@@ -222,7 +222,7 @@ export default function Home() {
         <div className="abstract-overview">
           <div className="abstract-lead">
             <p>Core insight</p>
-            <h3>Use orientation to reason about spatial relations and predict the viewpoint.</h3>
+            <h3>Use <em>orientation</em> to reason about <span className="insight-phrase">spatial relations</span> and predict the viewpoint.</h3>
           </div>
           <div className="abstract-summary">
             <p>OriGround estimates object orientations, parses viewpoint-aware symbolic programs, and evaluates relations in the correct anchor or observer frame before VLM disambiguation.</p>
